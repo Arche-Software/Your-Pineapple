@@ -1,0 +1,21 @@
+mat-form-field {
+  width: 100%;
+}
+
+.mat-card {
+  width: 61%;
+  margin-top: 9%;
+  margin-left: 17%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #EDC000 !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  background-color: #EDC000  !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+ background-color: #EDC000  !important;
+}

@@ -1,0 +1,34 @@
+<div class="main-container">
+  <div class="welcome-container">
+    <div class="title-container">
+      <span class="title">Welcome to the Sweet World of Pineapples! Discover the Juicy Delights of this Tropical Fruit,
+          post your own pineapple and check the pineapples of other folks or just scroll to know more about pineaples.</span>
+      <div class="buttons-container">
+        <app-secondary-button [label]="'Your Pineapple'" [pink]="true" routerLink="/create"></app-secondary-button>
+        <app-secondary-button [label]="'Check others'" [green]="true" routerLink="/viewPosts"></app-secondary-button>
+      </div>
+    </div>
+    <img class="freshPine-image" src="/assets/freshPine.png" alt="pineapple-image">
+  </div>
+  <div class="more-about-container">
+      <p>Pineapples are a delicious and nutritious fruit that can be enjoyed in a variety of ways,
+        The flesh is often described as having a tart and tangy flavor, with a hint of sweetness.
+      </p>
+      <p>Did you know ?</p>
+      <div class="cards-container">
+        <div class="card" *ngFor="let card of facts">
+            <p>
+              {{card}}
+            </p>
+        </div>
+      </div>
+  </div>
+</div>
+
+<svg style="display: none;">
+  <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+      <feTurbulence id="water-filter" numOctaves="3" seed="2" baseFrequency="0.01 0.03"></feTurbulence>
+      <feDisplacementMap scale="5" in="SourceGraphic"></feDisplacementMap>
+      <animate xlink:href="#water-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"></animate>
+  </filter>
+</svg>

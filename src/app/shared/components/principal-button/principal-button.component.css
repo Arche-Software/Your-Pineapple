@@ -1,0 +1,47 @@
+.principal {
+  padding: 8px 23px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 14px;
+  transition: all 250ms;
+  overflow: hidden;
+  cursor: pointer;
+ }
+
+ .principal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #EDC000;
+  z-index: -1;
+  transition: all 250ms
+ }
+
+ .principal.green::before {
+  background-color: #1d8a13;
+ }
+
+ .principal.pink::before {
+  background-color: #c7005d;
+ }
+
+ .principal.blue::before {
+  background-color: #2ca2c2;
+ }
+
+ .principal:hover {
+  color: #fffeff;
+ }
+
+ .principal:hover::before {
+  width: 100%;
+ }

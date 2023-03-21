@@ -1,0 +1,20 @@
+<div class="header-container">
+  <img class="image-icon" src="/assets/pineapple.png" routerLink="/" alt="pineapple-image">
+  <div class="options-container">
+    <ul class="button-container">
+      <li *ngIf="userIsAuthenticated">
+        <app-principal-button [label]="'New Post'" routerLink="/create"></app-principal-button>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <app-principal-button [label]="'Login'" routerLink="/auth/login"></app-principal-button>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <app-principal-button [label]="'Signup'" [green]="true" routerLink="/auth/signup"></app-principal-button>
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <app-principal-button [label]="'Logout'" [green]="true" (click)="onLogout()"></app-principal-button>
+      </li>
+    </ul>
+  </div>
+</div>
+

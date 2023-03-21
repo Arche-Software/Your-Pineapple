@@ -1,0 +1,46 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.header-container {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f8f6;
+}
+
+.image-icon {
+  width: 60px;
+  height: 48px;
+  margin-left: 13px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.options-container {
+  padding-top: 12px;
+}
+
+.button-container {
+  height: 150px;
+  margin-right: 18px;
+}
+
+li {
+  margin-right: 10px;
+}
