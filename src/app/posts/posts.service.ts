@@ -52,7 +52,6 @@ export class PostsService {
   }
 
   getPost(id: string) {
-    console.log('here iddd');
     return this.http.get<{
       _id: string;
       title: string;
@@ -62,12 +61,21 @@ export class PostsService {
     }>(BACKEND_URL + id);
   }
 
+  getPostByCreator(id: string) {
+    return this.http.get<{
+      _id: string;
+      title: string;
+      content: string;
+      imagePath: string;
+      creator: string;
+    }>(BACKEND_URL + 'creator/' + id);
+  }
+
   addPost(title: string, content: string, image: File) {
     const postData = new FormData();
     postData.append("title", title);
     postData.append("content", content);
     postData.append("image", image, title);
-    console.log(postData, 'testtts');
     this.http
       .post<{ message: string; post: Post }>(
         BACKEND_URL,

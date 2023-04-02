@@ -35,7 +35,6 @@ export class PostCreateComponent implements OnInit, OnDestroy {
     this.authStatusSub = this.authService
       .getAuthStatusListener()
       .subscribe(authStatus => {
-        this.menuService.spinner = false;
       });
     this.form = new FormGroup({
       title: new FormControl(null, {
@@ -51,9 +50,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
       if (paramMap.has("postId")) {
         this.mode = "edit";
         this.postId = paramMap.get("postId");
-        this.menuService.spinner = true;
         this.postsService.getPost(this.postId).subscribe(postData => {
-          this.menuService.spinner = false;
           this.post = {
             id: postData._id,
             title: postData.title,
@@ -89,8 +86,6 @@ export class PostCreateComponent implements OnInit, OnDestroy {
     if (this.form.invalid) {
       return;
     }
-    this.menuService.spinner = true;
-    console.log(this.mode);
     if (this.mode === "create") {
       this.postsService.addPost(
         this.form.value.title,

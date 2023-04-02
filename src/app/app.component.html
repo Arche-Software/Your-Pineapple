@@ -9,7 +9,7 @@
     </svg>
   </div>
 </div>
-<main>
-  <router-outlet></router-outlet>
+<main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet  #outlet="outlet"></router-outlet>
 </main>
 <!-- <app-error *ngIf="hasError"></app-error> -->

@@ -8,6 +8,8 @@
         <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
         <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
       </mat-form-field>
-      <app-principal-button [label]="'Signup'" type="submit"></app-principal-button>
+      <div class="button-container">
+        <app-principal-button [label]="'Signup'" type="submit"></app-principal-button>
+      </div>
     </form>
   </mat-card>

@@ -9,12 +9,12 @@ import { SignupComponent } from "./auth/signup/signup.component";
 
 
 const routes: Routes = [
-  { path: "", component: MainPageComponent },
-  { path: "viewPosts", component: PostListComponent },
-  { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },
-  { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard] },
-  { path: "auth/login", component: LoginComponent },
-  { path: "auth/signup", component: SignupComponent },
+  { path: "", component: MainPageComponent, data: { animation: 0 } },
+  { path: "viewPosts", component: PostListComponent, data: { animation: 1 } },
+  { path: "create", component: PostCreateComponent, canActivate: [AuthGuard], data: { animation: 2} },
+  { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard], data: { animation: 3} },
+  { path: "auth/login", component: LoginComponent, data: { animation: 4 } },
+  { path: "auth/signup", component: SignupComponent , data: { animation: 5}},
 ];
 
 @NgModule({

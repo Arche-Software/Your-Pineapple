@@ -16,9 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
-      authStatus => {
-        this.menuService.spinner = false;
-      }
+      authStatus => {}
     );
   }
 
@@ -26,7 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (form.invalid) {
       return;
     }
-    this.menuService.spinner = true;
     this.authService.login(form.value.email, form.value.password);
   }
 

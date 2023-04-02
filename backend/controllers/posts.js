@@ -1,7 +1,6 @@
 const Post = require("../models/post");
 
 exports.createPost = (req, res, next) => {
-  console.log('hereeeeee');
   const url = req.protocol + "://" + req.get("host");
   const post = new Post({
     title: req.body.title,
@@ -9,7 +8,6 @@ exports.createPost = (req, res, next) => {
     imagePath: url + "/images/" + req.file.filename,
     creator: req.userData.userId
   });
-  console.log('porstttt');
   post
     .save()
     .then(createdPost => {
@@ -99,10 +97,25 @@ exports.getPost = (req, res, next) => {
     });
 };
 
+exports.getPostByCreator = (req, res, next) => {
+  Post.findOne({creator: req.params.id})
+    .then(post => {
+      if (post) {
+        res.status(200).json(post);
+      } else {
+        res.status(404).json({ message: "Post not found!" });
+      }
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: "Fetching post failed!"
+      });
+    });
+};
+
 exports.deletePost = (req, res, next) => {
   Post.deleteOne({ _id: req.params.id, creator: req.userData.userId })
     .then(result => {
-      console.log(result);
       if (result.deletedCount > 0) {
         res.status(200).json({ message: "Deletion successful!" });
       } else {

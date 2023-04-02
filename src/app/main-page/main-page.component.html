@@ -4,8 +4,8 @@
       <span class="title">Welcome to the Sweet World of Pineapples! Discover the Juicy Delights of this Tropical Fruit,
           post your own pineapple and check the pineapples of other folks or just scroll to know more about pineaples. </span>
       <div class="buttons-container">
-        <app-secondary-button [label]="'Your Pineapple'" [pink]="true" routerLink="/create"></app-secondary-button>
-        <app-secondary-button [label]="'Check others'" [green]="true" routerLink="/viewPosts"></app-secondary-button>
+        <app-secondary-button [label]="'Your Pineapple'" class="mobile-button" [pink]="true" [routerLink]="postId ? ['/edit', postId]:['/create']"></app-secondary-button>
+        <app-secondary-button [label]="'Check others'" class="mobile-button" [green]="true" routerLink="/viewPosts"></app-secondary-button>
       </div>
     </div>
     <img class="freshPine-image" src="/assets/freshPine.png" alt="pineapple-image">
@@ -17,9 +17,11 @@
       <p>Did you know ?</p>
       <div class="cards-container">
         <div class="card" *ngFor="let card of facts">
-            <p>
-              {{card}}
-            </p>
+          <div class="box">
+              <div>
+                {{card}}
+              </div>
+          </div>
         </div>
       </div>
   </div>

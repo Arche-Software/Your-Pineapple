@@ -9,7 +9,6 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 app.use(cors())
-//m KQ0dsf76PqxSeeBv
 console.log(process.env.MONGO_ATLAS_PW);
 
 
@@ -19,7 +18,6 @@ mongoose
     console.log("Connected to database!");
   })
   .catch((e) => {
-    console.log(e);
     console.log("Connection failed!");
   });
 

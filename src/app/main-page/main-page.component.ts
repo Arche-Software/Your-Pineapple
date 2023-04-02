@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { PostsService } from '../posts/posts.service';
 
 @Component({
   selector: 'app-main-page',
@@ -13,11 +15,17 @@ export class MainPageComponent implements OnInit {
     "Pineapples are a good source of vitamin C, fiber, and bromelain, a digestive enzyme that helps break down protein. Bromelain is also used as a meat tenderizer.",
     "Pineapples are often used in cooking, especially in sweet and savory dishes. They can be eaten fresh, grilled, roasted, or baked, and are a common ingredient in tropical drinks and desserts.",
     "Pineapples have a tough, spiky exterior that can be challenging to cut. To prepare a pineapple, it's best to cut off the top and bottom, stand it upright, and slice off the skin in a downward motion."
-  ]
+  ];
+  public postId: any;
 
-  constructor() { }
+  constructor(public postsService: PostsService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    const userId = this.authService.getUserId();
+    if (userId) {
+      this.postsService.getPostByCreator(userId).subscribe( res => {
+        this.postId = res._id
+      })
+    }
   }
-
 }

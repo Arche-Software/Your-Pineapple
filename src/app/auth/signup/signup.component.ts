@@ -17,7 +17,6 @@ export class SignupComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
       authStatus => {
-        this.menuService.spinner = false;
       }
     );
   }
@@ -26,7 +25,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     if (form.invalid) {
       return;
     }
-    this.menuService.spinner = true;
     this.authService.createUser(form.value.email, form.value.password);
   }
 
